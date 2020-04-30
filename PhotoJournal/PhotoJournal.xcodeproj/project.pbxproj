@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F51FF32245B7D3000B5AB2A /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0F51FF31245B7D3000B5AB2A /* ImageKit */; };
+		0F51FF34245B82E400B5AB2A /* ImageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51FF33245B82E400B5AB2A /* ImageObject.swift */; };
 		0F80854423DEF5D1003BB7D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80854323DEF5D1003BB7D7 /* AppDelegate.swift */; };
 		0F80854623DEF5D1003BB7D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80854523DEF5D1003BB7D7 /* SceneDelegate.swift */; };
 		0F80854823DEF5D1003BB7D7 /* CollectionMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80854723DEF5D1003BB7D7 /* CollectionMainViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F51FF33245B82E400B5AB2A /* ImageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageObject.swift; sourceTree = "<group>"; };
 		0F80854023DEF5D1003BB7D7 /* PhotoJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F80854323DEF5D1003BB7D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F80854523DEF5D1003BB7D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +47,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F51FF35245B82F200B5AB2A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0F51FF33245B82E400B5AB2A /* ImageObject.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0F51FF36245B842A00B5AB2A /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				0F80854523DEF5D1003BB7D7 /* SceneDelegate.swift */,
+				0F80854323DEF5D1003BB7D7 /* AppDelegate.swift */,
+				0F80854E23DEF5D7003BB7D7 /* LaunchScreen.storyboard */,
+				0F80854C23DEF5D7003BB7D7 /* Assets.xcassets */,
+				0F80854923DEF5D1003BB7D7 /* Main.storyboard */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		0F51FF37245B844A00B5AB2A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0FA31D062406E84300BFB1D0 /* SettingsViewController.swift */,
+				0FA31D082406E9A900BFB1D0 /* AddPhotosViewController.swift */,
+				0F80854723DEF5D1003BB7D7 /* CollectionMainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0F51FF38245B847E00B5AB2A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0FA31D0A2406F2F900BFB1D0 /* CollectionPhotoCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		0F80853723DEF5D1003BB7D7 = {
 			isa = PBXGroup;
 			children = (
@@ -64,15 +104,10 @@
 		0F80854223DEF5D1003BB7D7 /* PhotoJournal */ = {
 			isa = PBXGroup;
 			children = (
-				0F80854323DEF5D1003BB7D7 /* AppDelegate.swift */,
-				0F80854523DEF5D1003BB7D7 /* SceneDelegate.swift */,
-				0F80854723DEF5D1003BB7D7 /* CollectionMainViewController.swift */,
-				0FA31D0A2406F2F900BFB1D0 /* CollectionPhotoCell.swift */,
-				0FA31D082406E9A900BFB1D0 /* AddPhotosViewController.swift */,
-				0FA31D062406E84300BFB1D0 /* SettingsViewController.swift */,
-				0F80854923DEF5D1003BB7D7 /* Main.storyboard */,
-				0F80854C23DEF5D7003BB7D7 /* Assets.xcassets */,
-				0F80854E23DEF5D7003BB7D7 /* LaunchScreen.storyboard */,
+				0F51FF35245B82F200B5AB2A /* Model */,
+				0F51FF37245B844A00B5AB2A /* Controllers */,
+				0F51FF38245B847E00B5AB2A /* Cell */,
+				0F51FF36245B842A00B5AB2A /* SupportingFiles */,
 				0F80855123DEF5D7003BB7D7 /* Info.plist */,
 			);
 			path = PhotoJournal;
@@ -158,6 +193,7 @@
 				0FA31D092406E9A900BFB1D0 /* AddPhotosViewController.swift in Sources */,
 				0F80854823DEF5D1003BB7D7 /* CollectionMainViewController.swift in Sources */,
 				0FA31D0B2406F2F900BFB1D0 /* CollectionPhotoCell.swift in Sources */,
+				0F51FF34245B82E400B5AB2A /* ImageObject.swift in Sources */,
 				0F80854423DEF5D1003BB7D7 /* AppDelegate.swift in Sources */,
 				0F80854623DEF5D1003BB7D7 /* SceneDelegate.swift in Sources */,
 				0FA31D072406E84300BFB1D0 /* SettingsViewController.swift in Sources */,

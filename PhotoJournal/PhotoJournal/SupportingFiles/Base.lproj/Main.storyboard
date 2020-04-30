@@ -56,7 +56,7 @@
                                         <size key="customSize" width="412" height="395"/>
                                         <connections>
                                             <outlet property="photoImage" destination="qy2-6i-VJi" id="5JK-Kt-kZA"/>
-                                            <outlet property="ptotoNameLabel" destination="o4Y-Fm-ycF" id="TEu-Ac-G8O"/>
+                                            <outlet property="photoNameLabel" destination="o4Y-Fm-ycF" id="TEu-Ac-G8O"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -80,7 +80,7 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="-378.34821428571428"/>
         </scene>
-        <!--Settings-->
+        <!--Settings View Controller-->
         <scene sceneID="Ezc-0e-CoY">
             <objects>
                 <viewController id="puS-y6-Si9" customClass="SettingsViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
@@ -230,7 +230,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NK8-ID-FCP"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="0od-Ni-XMJ"/>
+                    <navigationItem key="navigationItem" id="0od-Ni-XMJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q44-ti-2FH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
