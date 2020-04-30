@@ -43,6 +43,7 @@ class CollectionPhotoCell: UICollectionViewCell {
            delegate?.didLongPress(self)
        }
     
+    // FIXME: add label
     public func configureCell(imageObject: ImageObject) {
         // convertion Data to UIImage
         guard let image = UIImage(data: imageObject.imageData) else {

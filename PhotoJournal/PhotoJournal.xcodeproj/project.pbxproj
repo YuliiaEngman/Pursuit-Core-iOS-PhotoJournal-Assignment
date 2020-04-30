@@ -70,9 +70,9 @@
 		0F51FF37245B844A00B5AB2A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0FA31D062406E84300BFB1D0 /* SettingsViewController.swift */,
-				0FA31D082406E9A900BFB1D0 /* AddPhotosViewController.swift */,
 				0F80854723DEF5D1003BB7D7 /* CollectionMainViewController.swift */,
+				0FA31D082406E9A900BFB1D0 /* AddPhotosViewController.swift */,
+				0FA31D062406E84300BFB1D0 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
