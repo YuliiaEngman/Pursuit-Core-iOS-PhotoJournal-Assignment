@@ -10,13 +10,34 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func horizontalButton(_ sender: UIButton) {
+    }
+    
+    
+    @IBAction func verticalButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func pinkColorButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func tealColorButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func whiteColorButton(_ sender: UIButton) {
+    }
+    @IBAction func yellowColorButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func greenColorButton(_ sender: UIButton) {
+    }
     /*
     // MARK: - Navigation
 

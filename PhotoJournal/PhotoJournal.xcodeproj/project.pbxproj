@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F51FF32245B7D3000B5AB2A /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0F51FF31245B7D3000B5AB2A /* ImageKit */; };
 		0F80854423DEF5D1003BB7D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80854323DEF5D1003BB7D7 /* AppDelegate.swift */; };
 		0F80854623DEF5D1003BB7D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80854523DEF5D1003BB7D7 /* SceneDelegate.swift */; };
 		0F80854823DEF5D1003BB7D7 /* CollectionMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80854723DEF5D1003BB7D7 /* CollectionMainViewController.swift */; };
@@ -37,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F51FF32245B7D3000B5AB2A /* ImageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +94,9 @@
 			dependencies = (
 			);
 			name = PhotoJournal;
+			packageProductDependencies = (
+				0F51FF31245B7D3000B5AB2A /* ImageKit */,
+			);
 			productName = PhotoJournal;
 			productReference = 0F80854023DEF5D1003BB7D7 /* PhotoJournal.app */;
 			productType = "com.apple.product-type.application";
@@ -120,6 +125,9 @@
 				Base,
 			);
 			mainGroup = 0F80853723DEF5D1003BB7D7;
+			packageReferences = (
+				0F51FF30245B7D3000B5AB2A /* XCRemoteSwiftPackageReference "ImageKit" */,
+			);
 			productRefGroup = 0F80854123DEF5D1003BB7D7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -350,6 +358,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0F51FF30245B7D3000B5AB2A /* XCRemoteSwiftPackageReference "ImageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpaul/ImageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0F51FF31245B7D3000B5AB2A /* ImageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F51FF30245B7D3000B5AB2A /* XCRemoteSwiftPackageReference "ImageKit" */;
+			productName = ImageKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0F80853823DEF5D1003BB7D7 /* Project object */;
 }

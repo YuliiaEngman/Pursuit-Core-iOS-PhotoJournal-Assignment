@@ -9,12 +9,29 @@
 import UIKit
 
 class AddPhotosViewController: UIViewController {
-
+    
+    @IBOutlet weak var textField: UITextField!
+    
+    @IBOutlet weak var image: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func photoLibraryButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func cameraButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func cancelBarButton(_ sender: UIBarButtonItem) {
+    }
+    
+    @IBAction func saveBarButton(_ sender: UIBarButtonItem) {
+    }
+    
     
 
     /*

@@ -14,8 +14,7 @@ class CollectionPhotoCell: UICollectionViewCell {
     
     @IBOutlet weak var ptotoNameLabel: UILabel!
     
-    @IBAction func actionPhototSettingsButton(_ sender: UIButton) {
-    }
+  
     
     
 }
