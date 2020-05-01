@@ -115,14 +115,22 @@ class AddPhotosViewController: UIViewController {
         present(imagePickerController, animated: true)
     }
     
-    @IBAction func cancelBarButton(_ sender: UIBarButtonItem) {
+    
+    @IBAction func cancelButton(_ sender: UIButton) {
         
-        imageView.image = nil
-        textField.text = "Enter photo description"
-        dismiss(animated: true, completion: nil)
+        imageView.image = UIImage(systemName: "photo")
+               textField.placeholder = "Enter photo description"
+               
+               guard let mainVC = storyboard?.instantiateViewController(identifier: "CollectionMainViewController") as? CollectionMainViewController else {
+                   fatalError("could not downcast to CollectionMainViewController")
+               }
+               //editPhotoVC.image = image
+               //present(mainVC, animated: true)
+               let navigationVC = UINavigationController(rootViewController: mainVC)
+               present(navigationVC, animated: true, completion: nil)
     }
     
-    @IBAction func saveBarButton(_ sender: UIBarButtonItem) {
+    @IBAction func saveButton(_ sender: UIButton) {
         
         appendNewPhotoToCollection()
         

@@ -11,7 +11,7 @@
         <!--Photo Collection-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CollectionMainViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CollectionMainViewController" id="BYZ-38-t0r" customClass="CollectionMainViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,7 +86,7 @@
         <!--Settings-->
         <scene sceneID="Ezc-0e-CoY">
             <objects>
-                <viewController id="puS-y6-Si9" customClass="SettingsViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="puS-y6-Si9" customClass="SettingsViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RaW-iG-cxl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -300,28 +300,21 @@
         <!--Add Photo-->
         <scene sceneID="Jt0-JK-f8T">
             <objects>
-                <viewController id="ab1-HO-IYw" customClass="AddPhotosViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddPhotosViewController" id="ab1-HO-IYw" customClass="AddPhotosViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NnJ-xX-8Ws">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter photo description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lnE-Vp-VcC">
-                                <rect key="frame" x="20" y="108" width="374" height="34"/>
+                                <rect key="frame" x="20" y="191" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Uzm-M9-5xc">
-                                <rect key="frame" x="20" y="168" width="374" height="371.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="374" id="g8V-z1-fiS"/>
-                                    <constraint firstAttribute="width" constant="374" id="gCx-K5-nJV"/>
-                                </constraints>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tUu-UD-g4n">
-                                <rect key="frame" x="0.0" y="763" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="750.5" width="414" height="62.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PUR-zM-aOa">
-                                        <rect key="frame" x="0.0" y="0.0" width="207" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="62.5"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Photo Library">
@@ -336,7 +329,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rzN-Mf-vfY">
-                                        <rect key="frame" x="207" y="0.0" width="207" height="50"/>
+                                        <rect key="frame" x="207" y="0.0" width="207" height="62.5"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Camera">
@@ -353,36 +346,51 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="xkt-5E-7ti"/>
+                                    <constraint firstAttribute="height" constant="62.5" id="4ex-Px-PkK"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iq9-zf-bKn">
+                                <rect key="frame" x="20" y="98" width="64" height="63"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="15"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButton:" destination="ab1-HO-IYw" eventType="touchUpInside" id="R0X-Dn-L9r"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qv8-rQ-Bc5">
+                                <rect key="frame" x="355" y="98" width="39" height="63"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="15"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="ab1-HO-IYw" eventType="touchUpInside" id="xRP-Ui-Pm2"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Uzm-M9-5xc">
+                                <rect key="frame" x="20" y="251" width="374" height="371.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="374" id="geQ-Tk-r3x"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Uzm-M9-5xc" firstAttribute="top" secondItem="lnE-Vp-VcC" secondAttribute="bottom" constant="25" id="7oV-MZ-TsF"/>
-                            <constraint firstItem="Vxq-Vw-Ek5" firstAttribute="bottom" secondItem="tUu-UD-g4n" secondAttribute="bottom" id="I7S-iy-wJ4"/>
-                            <constraint firstItem="lnE-Vp-VcC" firstAttribute="top" secondItem="Vxq-Vw-Ek5" secondAttribute="top" constant="20" id="UFF-9x-7se"/>
-                            <constraint firstItem="Vxq-Vw-Ek5" firstAttribute="trailing" secondItem="lnE-Vp-VcC" secondAttribute="trailing" constant="20" id="aTk-gp-BH4"/>
-                            <constraint firstItem="Vxq-Vw-Ek5" firstAttribute="trailing" secondItem="tUu-UD-g4n" secondAttribute="trailing" id="cD5-Pg-iG6"/>
-                            <constraint firstItem="lnE-Vp-VcC" firstAttribute="leading" secondItem="Vxq-Vw-Ek5" secondAttribute="leading" constant="20" id="jlc-X0-zUh"/>
-                            <constraint firstItem="tUu-UD-g4n" firstAttribute="leading" secondItem="Vxq-Vw-Ek5" secondAttribute="leading" id="uW9-ly-6Qj"/>
-                            <constraint firstItem="Uzm-M9-5xc" firstAttribute="leading" secondItem="Vxq-Vw-Ek5" secondAttribute="leading" constant="20" id="w5V-0j-42b"/>
-                            <constraint firstItem="Vxq-Vw-Ek5" firstAttribute="trailing" secondItem="Uzm-M9-5xc" secondAttribute="trailing" constant="20" id="wud-cp-0wb"/>
+                            <constraint firstItem="Vxq-Vw-Ek5" firstAttribute="bottom" secondItem="tUu-UD-g4n" secondAttribute="bottom" id="4Vn-D1-gPs"/>
+                            <constraint firstItem="Qv8-rQ-Bc5" firstAttribute="top" secondItem="Vxq-Vw-Ek5" secondAttribute="top" constant="10" id="5h5-f5-FaV"/>
+                            <constraint firstItem="Vxq-Vw-Ek5" firstAttribute="trailing" secondItem="Uzm-M9-5xc" secondAttribute="trailing" constant="20" id="8FN-te-pqV"/>
+                            <constraint firstItem="Iq9-zf-bKn" firstAttribute="top" secondItem="Vxq-Vw-Ek5" secondAttribute="top" constant="10" id="FOr-VF-q1Y"/>
+                            <constraint firstItem="Uzm-M9-5xc" firstAttribute="leading" secondItem="Vxq-Vw-Ek5" secondAttribute="leading" constant="20" id="PCW-V0-ipG"/>
+                            <constraint firstItem="Vxq-Vw-Ek5" firstAttribute="trailing" secondItem="lnE-Vp-VcC" secondAttribute="trailing" constant="20" id="UOr-YR-7N2"/>
+                            <constraint firstItem="Vxq-Vw-Ek5" firstAttribute="trailing" secondItem="tUu-UD-g4n" secondAttribute="trailing" id="bH6-EO-P3A"/>
+                            <constraint firstItem="Vxq-Vw-Ek5" firstAttribute="trailing" secondItem="Qv8-rQ-Bc5" secondAttribute="trailing" constant="20" id="be8-OJ-AIh"/>
+                            <constraint firstItem="lnE-Vp-VcC" firstAttribute="top" secondItem="Iq9-zf-bKn" secondAttribute="bottom" constant="30" id="beS-wJ-sRO"/>
+                            <constraint firstItem="Iq9-zf-bKn" firstAttribute="leading" secondItem="Vxq-Vw-Ek5" secondAttribute="leading" constant="20" id="djo-AP-znh"/>
+                            <constraint firstItem="Uzm-M9-5xc" firstAttribute="top" secondItem="lnE-Vp-VcC" secondAttribute="bottom" constant="25" id="ghP-vb-gdq"/>
+                            <constraint firstItem="tUu-UD-g4n" firstAttribute="leading" secondItem="Vxq-Vw-Ek5" secondAttribute="leading" id="wDa-kh-5fk"/>
+                            <constraint firstItem="lnE-Vp-VcC" firstAttribute="leading" secondItem="Vxq-Vw-Ek5" secondAttribute="leading" constant="20" id="xWB-1K-4qz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vxq-Vw-Ek5"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Photo" id="vfC-wO-koW">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="duc-f2-chH">
-                            <connections>
-                                <action selector="cancelBarButton:" destination="ab1-HO-IYw" id="HaE-ye-y1f"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="xJr-tW-reG">
-                            <connections>
-                                <action selector="saveBarButton:" destination="ab1-HO-IYw" id="hCh-L9-8NG"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Add Photo" id="vfC-wO-koW"/>
                     <connections>
                         <outlet property="imageView" destination="Uzm-M9-5xc" id="b9s-3F-pmW"/>
                         <outlet property="textField" destination="lnE-Vp-VcC" id="QqU-e0-Urf"/>

@@ -114,9 +114,18 @@ extension CollectionMainViewController: CollectionPhotoCellDelegate {
         }
         
         let editAction = UIAlertAction(title: "Edit", style: .destructive) {
-            [weak self] alertAction in
-            let editingObject = self!.imageObjects[indexPath.row]
-            self?.segueImageObjectForEditing(editingObject)
+           [weak self] alertAction in
+           let editingObject = self!.imageObjects[indexPath.row]
+           self?.segueImageObjectForEditing(editingObject)
+            
+           // override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//                guard let editPhotoVC = segue.destination as? AddPhotosViewController, let indexPath = self!.collectionView.indexPath(for: sender as! CollectionPhotoCell) else {
+//                        fatalError("failed to get indexPath and editPhotoVC")
+//                    }
+//                    let editingObject = self!.imageObjects[indexPath.row]
+//                    editPhotoVC.image = editingObject
+               // }
+
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
@@ -143,10 +152,12 @@ extension CollectionMainViewController: CollectionPhotoCellDelegate {
     }
     
     private func segueImageObjectForEditing(_ image: ImageObject? = nil) {
+
         guard let editPhotoVC = storyboard?.instantiateViewController(identifier: "AddPhotosViewController") as? AddPhotosViewController else {
             fatalError("could not downcast to AddPhotosViewController")
         }
         editPhotoVC.image = image
+        
         present(editPhotoVC, animated: true)
     }
 }
