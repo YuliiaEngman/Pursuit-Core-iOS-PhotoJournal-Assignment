@@ -13,7 +13,7 @@ class CollectionMainViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private var imageObjects = [ImageObject]()
+   // private var imageObjects = [ImageObject]()
     
     //private let imagePickerController = UIImagePickerController()
     
@@ -44,6 +44,14 @@ class CollectionMainViewController: UIViewController {
      
      */
     
+    private var imageObjects = [ImageObject]() {
+           didSet {
+               DispatchQueue.main.async {
+                   self.collectionView.reloadData()
+               }
+           }
+       }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //FIXME (give the user option to change the color)
@@ -52,6 +60,7 @@ class CollectionMainViewController: UIViewController {
         collectionView.delegate = self
         
         loadImagesObjects()
+        //updateUI()
     }
     
     private func loadImagesObjects() {
@@ -61,6 +70,15 @@ class CollectionMainViewController: UIViewController {
             print("loading objects error: \(error)")
         }
     }
+    
+//    private func updateUI() {
+//          if let image = image {
+//              textField.text = image.imageDescription
+//              imageView.image = UIImage(data: image.imageData)
+//          } else {
+//              imageView.image = UIImage(systemName: "photo")
+//          }
+//      }
 }
 
 extension CollectionMainViewController: UICollectionViewDataSource {
@@ -115,16 +133,19 @@ extension CollectionMainViewController: CollectionPhotoCellDelegate {
         
         let editAction = UIAlertAction(title: "Edit", style: .destructive) {
            [weak self] alertAction in
-           let editingObject = self!.imageObjects[indexPath.row]
-           self?.segueImageObjectForEditing(editingObject)
+//           let editingObject = self!.imageObjects[indexPath.row]
+//           self?.segueImageObjectForEditing(editingObject)
             
-           // override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//                guard let editPhotoVC = segue.destination as? AddPhotosViewController, let indexPath = self!.collectionView.indexPath(for: sender as! CollectionPhotoCell) else {
-//                        fatalError("failed to get indexPath and editPhotoVC")
-//                    }
-//                    let editingObject = self!.imageObjects[indexPath.row]
-//                    editPhotoVC.image = editingObject
-               // }
+            guard let editPhotoVC = self?.storyboard?.instantiateViewController(identifier: "AddPhotosViewController") as? AddPhotosViewController else {
+                        fatalError("could not downcast to AddPhotosViewController")
+                    }
+            let editingObject = self!.imageObjects[indexPath.row]
+            print(editingObject)
+                    editPhotoVC.image = editingObject
+            //editPhotoVC.textField.text = editingObject.imageDescription
+            
+            self?.present(editPhotoVC, animated: true)
+
 
         }
         
@@ -151,15 +172,16 @@ extension CollectionMainViewController: CollectionPhotoCellDelegate {
         }
     }
     
-    private func segueImageObjectForEditing(_ image: ImageObject? = nil) {
-
-        guard let editPhotoVC = storyboard?.instantiateViewController(identifier: "AddPhotosViewController") as? AddPhotosViewController else {
-            fatalError("could not downcast to AddPhotosViewController")
-        }
-        editPhotoVC.image = image
-        
-        present(editPhotoVC, animated: true)
-    }
+    //private func segueImageObjectForEditing(_ image: ImageObject? = nil) {
+//    private func segueImageObjectForEditing(_ image: ImageObject) {
+//
+//        guard let editPhotoVC = storyboard?.instantiateViewController(identifier: "AddPhotosViewController") as? AddPhotosViewController else {
+//            fatalError("could not downcast to AddPhotosViewController")
+//        }
+//        editPhotoVC.image = image
+//
+//        present(editPhotoVC, animated: true)
+//    }
 }
 
 

@@ -10,6 +10,9 @@
 		0F51FF34245B82E400B5AB2A /* ImageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51FF33245B82E400B5AB2A /* ImageObject.swift */; };
 		0F51FF3B245C84D900B5AB2A /* PersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51FF3A245C84D900B5AB2A /* PersistenceHelper.swift */; };
 		0F51FF3D245C84FF00B5AB2A /* FileManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51FF3C245C84FF00B5AB2A /* FileManager+Extensions.swift */; };
+		0F51FF40245CE4BA00B5AB2A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51FF3F245CE4BA00B5AB2A /* MainViewController.swift */; };
+		0F51FF42245CE94300B5AB2A /* NewAddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51FF41245CE94300B5AB2A /* NewAddPhotoViewController.swift */; };
+		0F51FF44245CE9D200B5AB2A /* NewSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51FF43245CE9D200B5AB2A /* NewSettingsViewController.swift */; };
 		0F80854423DEF5D1003BB7D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80854323DEF5D1003BB7D7 /* AppDelegate.swift */; };
 		0F80854623DEF5D1003BB7D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80854523DEF5D1003BB7D7 /* SceneDelegate.swift */; };
 		0F80854823DEF5D1003BB7D7 /* CollectionMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80854723DEF5D1003BB7D7 /* CollectionMainViewController.swift */; };
@@ -25,6 +28,9 @@
 		0F51FF33245B82E400B5AB2A /* ImageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageObject.swift; sourceTree = "<group>"; };
 		0F51FF3A245C84D900B5AB2A /* PersistenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceHelper.swift; sourceTree = "<group>"; };
 		0F51FF3C245C84FF00B5AB2A /* FileManager+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extensions.swift"; sourceTree = "<group>"; };
+		0F51FF3F245CE4BA00B5AB2A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		0F51FF41245CE94300B5AB2A /* NewAddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAddPhotoViewController.swift; sourceTree = "<group>"; };
+		0F51FF43245CE9D200B5AB2A /* NewSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingsViewController.swift; sourceTree = "<group>"; };
 		0F80854023DEF5D1003BB7D7 /* PhotoJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F80854323DEF5D1003BB7D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F80854523DEF5D1003BB7D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +102,16 @@
 			path = DataPersistance;
 			sourceTree = "<group>";
 		};
+		0F51FF3E245CE49600B5AB2A /* NewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0F51FF3F245CE4BA00B5AB2A /* MainViewController.swift */,
+				0F51FF41245CE94300B5AB2A /* NewAddPhotoViewController.swift */,
+				0F51FF43245CE9D200B5AB2A /* NewSettingsViewController.swift */,
+			);
+			path = NewControllers;
+			sourceTree = "<group>";
+		};
 		0F80853723DEF5D1003BB7D7 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +131,7 @@
 		0F80854223DEF5D1003BB7D7 /* PhotoJournal */ = {
 			isa = PBXGroup;
 			children = (
+				0F51FF3E245CE49600B5AB2A /* NewControllers */,
 				0F51FF39245C84A200B5AB2A /* DataPersistance */,
 				0F51FF35245B82F200B5AB2A /* Model */,
 				0F51FF37245B844A00B5AB2A /* Controllers */,
@@ -202,13 +219,16 @@
 			files = (
 				0FA31D092406E9A900BFB1D0 /* AddPhotosViewController.swift in Sources */,
 				0F80854823DEF5D1003BB7D7 /* CollectionMainViewController.swift in Sources */,
+				0F51FF42245CE94300B5AB2A /* NewAddPhotoViewController.swift in Sources */,
 				0FA31D0B2406F2F900BFB1D0 /* CollectionPhotoCell.swift in Sources */,
+				0F51FF44245CE9D200B5AB2A /* NewSettingsViewController.swift in Sources */,
 				0F51FF34245B82E400B5AB2A /* ImageObject.swift in Sources */,
 				0F80854423DEF5D1003BB7D7 /* AppDelegate.swift in Sources */,
 				0F80854623DEF5D1003BB7D7 /* SceneDelegate.swift in Sources */,
 				0FA31D072406E84300BFB1D0 /* SettingsViewController.swift in Sources */,
 				0F51FF3B245C84D900B5AB2A /* PersistenceHelper.swift in Sources */,
 				0F51FF3D245C84FF00B5AB2A /* FileManager+Extensions.swift in Sources */,
+				0F51FF40245CE4BA00B5AB2A /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
