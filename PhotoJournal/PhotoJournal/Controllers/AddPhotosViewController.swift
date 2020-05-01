@@ -33,6 +33,18 @@ class AddPhotosViewController: UIViewController {
         super.viewDidLoad()
         textField.delegate = self
         imagePickerController.delegate = self
+        
+        updateUI()
+    }
+    
+    // I think this code should be in main vc
+    private func updateUI() {
+        if let image = image {
+            textField.text = image.imageDescription
+            imageView.image = UIImage(data: image.imageData)
+        } else {
+            imageView.image = UIImage(systemName: "photo")
+        }
     }
     
     private func appendNewPhotoToCollection() {
@@ -85,28 +97,56 @@ class AddPhotosViewController: UIViewController {
     }
     
     @IBAction func photoLibraryButton(_ sender: UIButton) {
+        self.showImageController(isCameraSelected: false)
     }
     
     @IBAction func cameraButton(_ sender: UIButton) {
+        self.showImageController(isCameraSelected: true)
+    }
+    
+    private func showImageController(isCameraSelected: Bool) {
+        // source type default will be .photoLibrary
+        imagePickerController.sourceType = .photoLibrary
+        
+        if isCameraSelected {
+            imagePickerController.sourceType = .camera
+        }
+        present(imagePickerController, animated: true)
     }
     
     @IBAction func cancelBarButton(_ sender: UIBarButtonItem) {
+        
+        imageView.image = nil
+        textField.text = "Enter photo description"
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveBarButton(_ sender: UIBarButtonItem) {
+        
+        guard let image = imageView.image else {
+               print("image is nil")
+               return
+           }
+           
+           let size = UIScreen.main.bounds.size
+           
+           let rect = AVMakeRect(aspectRatio: image.size, insideRect: CGRect(origin: CGPoint.zero, size: size))
+           
+           let resizedImage = image.resizeImage(to: rect.size.width, height: rect.size.height)
+           
+           guard let resizedImageData = resizedImage.jpegData(compressionQuality: 1.0) else {
+               return
+           }
+           
+           let imageObject = ImageObject(imageData: resizedImageData, date: Date(), imageDescription: textField.text ?? "no photo description")
+           
+           do {
+               try dataPersistance.create(item: imageObject)
+           } catch {
+               print("saving error: \(error)")
+           }
+           dismiss(animated: true, completion: nil)
     }
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
 
@@ -133,24 +173,11 @@ extension AddPhotosViewController: UIImagePickerControllerDelegate, UINavigation
 
 extension AddPhotosViewController: UITextFieldDelegate {
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField.text == "Enter photo description" {
-            textField.text = ""
-        }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField.text == "" {
-            textField.text = "Enter photo description"
-        }
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField.text == "\n" {
-            textField.resignFirstResponder()
-        }
+        textField.resignFirstResponder()
         return true
     }
+    
 }
 
 extension UIImage {
