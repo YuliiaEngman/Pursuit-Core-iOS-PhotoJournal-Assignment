@@ -50,7 +50,8 @@ class CollectionPhotoCell: UICollectionViewCell {
             return
         }
         photoImage.image = image
-        photoNameLabel.text = ""
+        photoNameLabel.text = imageObject.imageDescription
+        
     }
     
   
