@@ -47,7 +47,7 @@ class CollectionMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //FIXME (give the user option to change the color)
-        view.backgroundColor = .systemOrange
+        view.backgroundColor = .white
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -75,7 +75,7 @@ extension CollectionMainViewController: UICollectionViewDataSource {
         let imageObject = imageObjects[indexPath.row]
         // FIXME: add label
         cell.configureCell(imageObject: imageObject)
-        cell.backgroundColor = .yellow
+       // cell.backgroundColor = .yellow
         
         // FIXME: creating custom delegation - set delegate object for longPress -> move this code to LongPress for editing function
         cell.delegate = self
@@ -90,8 +90,13 @@ extension CollectionMainViewController: UICollectionViewDelegateFlowLayout {
         
         let maxWidth: CGFloat = UIScreen.main.bounds.size.width
         let itemWidth: CGFloat = maxWidth * 0.8
-        return CGSize(width: itemWidth, height: itemWidth)
+        return CGSize(width: itemWidth, height: itemWidth * 1.1)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+    }
+    
 }
 
 extension CollectionMainViewController: CollectionPhotoCellDelegate {

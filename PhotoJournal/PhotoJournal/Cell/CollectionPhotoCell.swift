@@ -29,7 +29,7 @@ class CollectionPhotoCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = 20.0
-        backgroundColor = .orange
+        //backgroundColor = .orange
         
         addGestureRecognizer(longPressGesture)
     }

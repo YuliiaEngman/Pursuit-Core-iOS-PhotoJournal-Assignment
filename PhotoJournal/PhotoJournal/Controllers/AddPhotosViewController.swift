@@ -25,7 +25,8 @@ class AddPhotosViewController: UIViewController {
     
     private var selectedImage: UIImage? {
         didSet {
-            appendNewPhotoToCollection()
+           appendNewPhotoToCollection()
+            //updateUI()
         }
     }
     
@@ -34,7 +35,7 @@ class AddPhotosViewController: UIViewController {
         textField.delegate = self
         imagePickerController.delegate = self
         
-        updateUI()
+        //updateUI()
     }
     
     // I think this code should be in main vc
@@ -123,6 +124,8 @@ class AddPhotosViewController: UIViewController {
     
     @IBAction func saveBarButton(_ sender: UIBarButtonItem) {
         
+        appendNewPhotoToCollection()
+        
         guard let image = imageView.image else {
                print("image is nil")
                return
@@ -165,8 +168,8 @@ extension AddPhotosViewController: UIImagePickerControllerDelegate, UINavigation
             print("image selected not found")
             return
         }
-        selectedImage = image
-        //imageView.image = image
+        //selectedImage = image
+        imageView.image = image
         dismiss(animated: true)
     }
 }
