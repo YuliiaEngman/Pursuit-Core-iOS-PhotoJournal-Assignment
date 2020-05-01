@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import AVFoundation
 
 class AddPhotosViewController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
     
-    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    public var image = ImageObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()

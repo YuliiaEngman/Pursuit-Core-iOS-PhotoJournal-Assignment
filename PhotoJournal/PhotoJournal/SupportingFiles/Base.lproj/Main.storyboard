@@ -381,7 +381,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="image" destination="Uzm-M9-5xc" id="b9s-3F-pmW"/>
+                        <outlet property="imageView" destination="Uzm-M9-5xc" id="b9s-3F-pmW"/>
                         <outlet property="textField" destination="lnE-Vp-VcC" id="QqU-e0-Urf"/>
                     </connections>
                 </viewController>

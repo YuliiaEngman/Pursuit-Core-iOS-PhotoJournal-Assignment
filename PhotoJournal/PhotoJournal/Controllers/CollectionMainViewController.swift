@@ -15,6 +15,18 @@ class CollectionMainViewController: UIViewController {
     
     private var imageObjects = [ImageObject]()
     
+    //private let imagePickerController = UIImagePickerController()
+    
+    private let dataPersistance = PersistenceHelper(filename: "images.plist")
+    
+    /*
+     private var selectedImage: UIImage? {
+     didSet {
+     appendNewPhotoToCollection()
+     }
+     }
+     */
+    
     // FIXME: use in addPicsVC
     /*
      
@@ -38,29 +50,35 @@ class CollectionMainViewController: UIViewController {
         view.backgroundColor = .systemOrange
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        loadImagesObjects()
+    }
+    
+    private func loadImagesObjects() {
+        do {
+            imageObjects = try dataPersistance.loadEvents()
+        } catch {
+            print("loading objects error: \(error)")
+        }
     }
 }
 
 extension CollectionMainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //FIXME: return count fo photos
-        return 5
+        return imageObjects.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionPhotoCell", for: indexPath) as? CollectionPhotoCell else {
             fatalError("could downcast to CollectionPhotoCell")
         }
+        let imageObject = imageObjects[indexPath.row]
+        // FIXME: add label
+        cell.configureCell(imageObject: imageObject)
+        cell.backgroundColor = .yellow
         
-        /*
-         let imageObject = imageObjects[indexPath.row]
-         // FIXME: add label
-         cell.configureCell(imageObject: imageObject)
-         cell.backgroundColor = .yellow
-         
-         // FIXME: creating custom delegation - set delegate object for longPress -> move this code to LongPress for editing function
-         //cell.delegate = self
-         
-         */
+        // FIXME: creating custom delegation - set delegate object for longPress -> move this code to LongPress for editing function
+        cell.delegate = self
         return cell
     }
 }
@@ -76,51 +94,56 @@ extension CollectionMainViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-/*
- extension CollectionMainViewController: CollectionPhotoCellDelegate {
- func didLongPress(_ imageCell: CollectionPhotoCell) {
- //print("cell was selected")
- guard let indexPath = collectionView.indexPath(for: imageCell) else {
- return
- }
- 
- // action: delete, edit (segues to addPhotoVC), cancel
- let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
- let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] alertAction in
- self?.deleteImageObject(indexPath: indexPath)
- }
- 
- let editAction = UIAlertAction(title: "Edit", style: .destructive) {
- [weak self] alertAction in
- self?.segueImageObjectForEditing(indexPath: indexPath)
- }
- 
- let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
- alertController.addAction(deleteAction)
- alertController.addAction(cancelAction)
- present(alertController, animated: true)
- }
- 
- private func deleteImageObject(indexPath: IndexPath) {
- 
- do {
- // delete image object from documents directory
- try dataPersistance.delete(event: indexPath.row)
- 
- //delete imageObject from imageObjects
- imageObjects.remove(at: indexPath.row)
- //delete cell from collection view
- collectionView.deleteItems(at: [indexPath])
- } catch {
- print("error deleting item: \(error)")
- }
- }
- 
- private func segueImageObjectForEditing(indexPath: IndexPath) {
- let editPhotoVC = AddPhotosViewController()
- present(editPhotoVC, animated: true)
- // see if I need more info on to pass such as labelname + picture itself
- }
- }
- */
+extension CollectionMainViewController: CollectionPhotoCellDelegate {
+    func didLongPress(_ imageCell: CollectionPhotoCell) {
+        //print("cell was selected")
+        guard let indexPath = collectionView.indexPath(for: imageCell) else {
+            return
+        }
+        
+        // action: delete, edit (segues to addPhotoVC), cancel
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] alertAction in
+            self?.deleteImageObject(indexPath: indexPath)
+        }
+        
+        let editAction = UIAlertAction(title: "Edit", style: .destructive) {
+            [weak self] alertAction in
+            let editingObject = self!.imageObjects[indexPath.row]
+            self?.segueImageObjectForEditing(editingObject)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alertController.addAction(deleteAction)
+        alertController.addAction(editAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
+    }
+    
+    private func deleteImageObject(indexPath: IndexPath) {
+        
+        do {
+            // delete image object from documents directory
+            try dataPersistance.delete(event: indexPath.row)
+            
+            //delete imageObject from imageObjects
+            imageObjects.remove(at: indexPath.row)
+            //delete cell from collection view
+            collectionView.deleteItems(at: [indexPath])
+        } catch {
+            print("error deleting item: \(error)")
+        }
+    }
+    
+    private func segueImageObjectForEditing(_ image: ImageObject? = nil) {
+        guard let editPhotoVC = storyboard?.instantiateViewController(identifier: "AddPhotosViewController") as? AddPhotosViewController else {
+            fatalError("could not downcast to AddPhotosViewController")
+        }
+        editPhotoVC.image = image
+        present(editPhotoVC, animated: true)
+    }
+}
+
 
