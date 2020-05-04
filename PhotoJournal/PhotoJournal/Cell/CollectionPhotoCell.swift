@@ -51,7 +51,6 @@ class CollectionPhotoCell: UICollectionViewCell {
         }
         photoImage.image = image
         photoNameLabel.text = imageObject.imageDescription
-        
     }
     
   

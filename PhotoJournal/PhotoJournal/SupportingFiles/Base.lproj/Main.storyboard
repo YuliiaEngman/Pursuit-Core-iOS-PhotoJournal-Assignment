@@ -138,10 +138,19 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eg8-Dk-INO">
+                                                    <rect key="frame" x="364" y="360" width="30" height="30"/>
+                                                    <state key="normal" title="Edit"/>
+                                                    <connections>
+                                                        <action selector="editButtonPressed:" destination="PID-pz-k0d" eventType="touchUpInside" id="iZC-xj-NIz"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="r4f-fT-IKD" secondAttribute="trailing" constant="20" id="BSO-B7-dhe"/>
                                                 <constraint firstAttribute="trailing" secondItem="0iz-Sd-fSE" secondAttribute="trailing" constant="20" id="JX0-a6-DTe"/>
+                                                <constraint firstAttribute="trailing" secondItem="Eg8-Dk-INO" secondAttribute="trailing" constant="20" id="PNb-vh-4Dy"/>
+                                                <constraint firstItem="r4f-fT-IKD" firstAttribute="top" secondItem="Eg8-Dk-INO" secondAttribute="bottom" constant="10" id="WjI-9l-WgI"/>
                                                 <constraint firstItem="0iz-Sd-fSE" firstAttribute="top" secondItem="IfD-Lo-veL" secondAttribute="top" constant="20" id="cRb-VZ-c8a"/>
                                                 <constraint firstItem="r4f-fT-IKD" firstAttribute="top" secondItem="0iz-Sd-fSE" secondAttribute="bottom" constant="30" id="gaj-XZ-DWt"/>
                                                 <constraint firstItem="r4f-fT-IKD" firstAttribute="leading" secondItem="IfD-Lo-veL" secondAttribute="leading" constant="20" id="wZ2-OS-rjG"/>

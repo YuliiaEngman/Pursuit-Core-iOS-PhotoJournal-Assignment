@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MainViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-     // private var imageObjects = [ImageObject]()
+    
+    private var imageObjects = [ImageObject]()
         
         //private let imagePickerController = UIImagePickerController()
         
@@ -43,13 +45,13 @@ class MainViewController: UIViewController {
          
          */
         
-        private var imageObjects = [ImageObject]() {
-               didSet {
-                   DispatchQueue.main.async {
-                       self.collectionView.reloadData()
-                   }
-               }
-           }
+//    private var imageObjects: [ImageObject] {
+//               didSet {
+//                   DispatchQueue.main.async {
+//                       self.collectionView.reloadData()
+//                   }
+//               }
+//           }
         
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -58,13 +60,15 @@ class MainViewController: UIViewController {
             collectionView.dataSource = self
             collectionView.delegate = self
             
-            loadImagesObjects()
+            loadImageObjects()
             //updateUI()
         }
         
-        private func loadImagesObjects() {
+        private func loadImageObjects() {
             do {
                 imageObjects = try dataPersistance.loadEvents()
+                // pay attantion what is printed here:
+                print(imageObjects)
             } catch {
                 print("loading objects error: \(error)")
             }
@@ -78,11 +82,16 @@ class MainViewController: UIViewController {
     //              imageView.image = UIImage(systemName: "photo")
     //          }
     //      }
+    @IBAction func editButtonPressed(_ sender: UIButton) {
+    }
+    
+    
     }
 
     extension MainViewController: UICollectionViewDataSource {
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
             //FIXME: return count fo photos
+            print(imageObjects.count)
             return imageObjects.count
         }
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -98,6 +107,8 @@ class MainViewController: UIViewController {
             cell.delegate = self
             return cell
         }
+        
+        
     }
 
     // here we are using UICollectionViewFlowLayout
@@ -113,6 +124,8 @@ class MainViewController: UIViewController {
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
             return UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         }
+        
+        
         
     }
 
@@ -181,5 +194,7 @@ class MainViewController: UIViewController {
     //
     //        present(editPhotoVC, animated: true)
     //    }
+        
+        
 
 }

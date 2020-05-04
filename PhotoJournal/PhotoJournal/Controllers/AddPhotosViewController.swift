@@ -50,7 +50,7 @@ class AddPhotosViewController: UIViewController {
     
     private func appendNewPhotoToCollection() {
         guard let image = selectedImage else {
-            print("image is nil")
+            print("image is nil # 3")
             return
         }
         print("original image size is \(image.size)")
@@ -91,7 +91,7 @@ class AddPhotosViewController: UIViewController {
         
         //persist imageObject to documents directory
         do {
-            try dataPersistance.create(item: imageObject)
+            try dataPersistance.create(imageObject)
         } catch {
             print("saving error: \(error)")
         }
@@ -135,7 +135,7 @@ class AddPhotosViewController: UIViewController {
         appendNewPhotoToCollection()
         
         guard let image = imageView.image else {
-               print("image is nil")
+               print("image is nil # 4")
                return
            }
            
@@ -152,7 +152,7 @@ class AddPhotosViewController: UIViewController {
            let imageObject = ImageObject(imageData: resizedImageData, date: Date(), imageDescription: textField.text ?? "no photo description")
            
            do {
-               try dataPersistance.create(item: imageObject)
+            try dataPersistance.create(imageObject)
            } catch {
                print("saving error: \(error)")
            }
