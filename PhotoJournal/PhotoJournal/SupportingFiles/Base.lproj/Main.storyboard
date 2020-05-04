@@ -493,40 +493,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Kn-fM-hT1">
-                                <rect key="frame" x="34" y="49" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Kn-fM-hT1">
+                                <rect key="frame" x="20" y="50" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="Xhh-vK-WIY" eventType="touchUpInside" id="7ld-r8-9Om"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKU-6S-6Y6">
-                                <rect key="frame" x="354" y="49" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKU-6S-6Y6">
+                                <rect key="frame" x="360" y="50" width="34" height="30"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="Xhh-vK-WIY" eventType="touchUpInside" id="dYE-T0-Dk6"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kvw-Xe-DqY">
-                                <rect key="frame" x="35" y="117" width="359" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kvw-Xe-DqY">
+                                <rect key="frame" x="20" y="130" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S6l-25-mca">
-                                <rect key="frame" x="35" y="250" width="359" height="234"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="S6l-25-mca">
+                                <rect key="frame" x="20" y="215" width="374" height="247.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="dWk-py-Jb0"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8E-zL-Rjb">
-                                <rect key="frame" x="35" y="710" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8E-zL-Rjb">
+                                <rect key="frame" x="20" y="708" width="92" height="30"/>
+                                <state key="normal" title="Photo Library"/>
+                                <connections>
+                                    <action selector="photolibraryButton:" destination="Xhh-vK-WIY" eventType="touchUpInside" id="fhV-PJ-r5p"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbg-xL-Ksr">
-                                <rect key="frame" x="348" y="710" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbg-xL-Ksr">
+                                <rect key="frame" x="340" y="708" width="54" height="30"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="cameraButton:" destination="Xhh-vK-WIY" eventType="touchUpInside" id="3Up-22-yhQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="XvS-R1-UGR" firstAttribute="trailing" secondItem="zbg-xL-Ksr" secondAttribute="trailing" constant="20" id="0YM-Gq-URK"/>
+                            <constraint firstItem="6Kn-fM-hT1" firstAttribute="top" secondItem="XvS-R1-UGR" secondAttribute="top" constant="50" id="6oU-mW-rBp"/>
+                            <constraint firstItem="XvS-R1-UGR" firstAttribute="bottom" secondItem="zbg-xL-Ksr" secondAttribute="bottom" constant="70" id="Aq5-pc-KpN"/>
+                            <constraint firstItem="XvS-R1-UGR" firstAttribute="bottom" secondItem="q8E-zL-Rjb" secondAttribute="bottom" constant="70" id="Lbe-qg-4Ey"/>
+                            <constraint firstItem="XvS-R1-UGR" firstAttribute="trailing" secondItem="S6l-25-mca" secondAttribute="trailing" constant="20" id="Q1f-5e-vGZ"/>
+                            <constraint firstItem="XvS-R1-UGR" firstAttribute="trailing" secondItem="pKU-6S-6Y6" secondAttribute="trailing" constant="20" id="Wdg-bh-zqx"/>
+                            <constraint firstItem="XvS-R1-UGR" firstAttribute="trailing" secondItem="kvw-Xe-DqY" secondAttribute="trailing" constant="20" id="b2w-mg-pYy"/>
+                            <constraint firstItem="kvw-Xe-DqY" firstAttribute="top" secondItem="6Kn-fM-hT1" secondAttribute="bottom" constant="50" id="d0N-Rb-7bz"/>
+                            <constraint firstItem="S6l-25-mca" firstAttribute="top" secondItem="kvw-Xe-DqY" secondAttribute="bottom" constant="50" id="esl-dv-zrY"/>
+                            <constraint firstItem="q8E-zL-Rjb" firstAttribute="leading" secondItem="XvS-R1-UGR" secondAttribute="leading" constant="20" id="gsQ-y2-0MU"/>
+                            <constraint firstItem="kvw-Xe-DqY" firstAttribute="leading" secondItem="XvS-R1-UGR" secondAttribute="leading" constant="20" id="hBW-X4-3Nr"/>
+                            <constraint firstItem="pKU-6S-6Y6" firstAttribute="top" secondItem="XvS-R1-UGR" secondAttribute="top" constant="50" id="kw8-YZ-Ek2"/>
+                            <constraint firstItem="6Kn-fM-hT1" firstAttribute="leading" secondItem="XvS-R1-UGR" secondAttribute="leading" constant="20" id="tmY-s0-OQ0"/>
+                            <constraint firstItem="S6l-25-mca" firstAttribute="leading" secondItem="XvS-R1-UGR" secondAttribute="leading" constant="20" id="wbN-tz-ERh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="XvS-R1-UGR"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="S6l-25-mca" id="V90-VR-O1p"/>
+                        <outlet property="textField" destination="kvw-Xe-DqY" id="6bs-sR-a5L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ve-nD-uZz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
