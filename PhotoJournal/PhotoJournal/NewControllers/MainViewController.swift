@@ -13,8 +13,15 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var toolBar: UIToolbar!
     
-    private var imageObjects = [ImageObject]()
+    
+    
+    private var imageObjects = [ImageObject]() {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
      
     
     private let imagePickerController = UIImagePickerController()
@@ -39,10 +46,10 @@ class MainViewController: UIViewController {
         loadImageObjects()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        loadImageObjects()
-        collectionView.reloadData()
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        loadImageObjects()
+//        collectionView.reloadData()
+//    }
     
     private func loadImageObjects() {
         do {
@@ -93,6 +100,22 @@ class MainViewController: UIViewController {
                  print("saving error: \(error)")
              }
          }
+    
+    private func showAddNewPhotoVC() {
+      
+              guard let addNewPhotoVC = storyboard?.instantiateViewController(identifier: "NewAddPhotoViewController") as? NewAddPhotoViewController else {
+                  fatalError("could not downcast to NewAddPhotoViewController")
+              }
+       // addNewPhotoVC.delegate = self
+      
+              present(addNewPhotoVC, animated: true)
+          }
+    
+    @IBAction func addPhotoBarButtonPressed(_ sender: UIBarButtonItem) {
+        showAddNewPhotoVC()
+    }
+    
+    
 }
 
 extension MainViewController: UICollectionViewDataSource {

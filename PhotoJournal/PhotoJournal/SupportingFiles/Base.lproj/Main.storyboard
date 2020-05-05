@@ -95,8 +95,9 @@
                                 <rect key="frame" x="0.0" y="818" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Item" image="plus" catalog="system" id="Apn-hY-6qb">
+                                    <barButtonItem title="AddPhoto" image="plus" catalog="system" id="Apn-hY-6qb">
                                         <connections>
+                                            <action selector="addPhotoBarButtonPressed:" destination="PID-pz-k0d" id="Ooh-pY-gXj"/>
                                             <segue destination="Xhh-vK-WIY" kind="modal" id="C8j-Ph-ewq"/>
                                         </connections>
                                     </barButtonItem>
@@ -153,6 +154,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="b5p-BR-9NK" id="goY-rH-AKi"/>
+                        <outlet property="toolBar" destination="XCF-gu-4fW" id="YvU-Na-7ih"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ogj-EJ-3lG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
