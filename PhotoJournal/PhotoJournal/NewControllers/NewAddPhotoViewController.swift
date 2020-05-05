@@ -54,16 +54,7 @@ class NewAddPhotoViewController: UIViewController {
     
     //FIXME:
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
-        imageView.image = UIImage(systemName: "photo")
-                      textField.placeholder = "Enter photo description"
-                      
-                      guard let mainVC = storyboard?.instantiateViewController(identifier: "CollectionMainViewController") as? CollectionMainViewController else {
-                          fatalError("could not downcast to CollectionMainViewController")
-                      }
-                      //editPhotoVC.image = image
-                      //present(mainVC, animated: true)
-//                      let navigationVC = UINavigationController(rootViewController: mainVC)
-//                      present(navigationVC, animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
@@ -88,7 +79,7 @@ class NewAddPhotoViewController: UIViewController {
         let imageObject = ImageObject(imageData: resizedImageData, date: Date(), imageDescription: textField.text ?? "no image description")
            
            do {
-            try dataPersistance.create(event: imageObject)
+            try dataPersistance.create(item: imageObject)
            } catch {
                print("saving error: \(error)")
            }

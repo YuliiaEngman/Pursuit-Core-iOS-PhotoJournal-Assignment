@@ -15,10 +15,16 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var toolBar: UIToolbar!
     
+    @IBOutlet weak var addPhotoButton: UIBarButtonItem!
+ 
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
+    
+    
     
     
     private var imageObjects = [ImageObject]() {
         didSet {
+            loadImageObjects()
             collectionView.reloadData()
         }
     }
@@ -53,7 +59,8 @@ class MainViewController: UIViewController {
     
     private func loadImageObjects() {
         do {
-            imageObjects = try dataPersistance.loadEvents()
+            //imageObjects = try dataPersistance.loadEvents()
+            imageObjects = try dataPersistance.loadItems()
             // pay attantion what is printed here:
             print(imageObjects)
         } catch {
@@ -95,7 +102,7 @@ class MainViewController: UIViewController {
     
              //persist imageObject to documents directory
              do {
-                try dataPersistance.create(event: imageObject)
+                try dataPersistance.create(item: imageObject)
              } catch {
                  print("saving error: \(error)")
              }
@@ -180,7 +187,8 @@ extension MainViewController: CollectionPhotoCellDelegate {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] alertAction in
-            self?.deleteImageObject(indexPath: indexPath)
+        self?.deleteImageObject(indexPath: indexPath)
+           // let index = self?.imageObjects.firstIndex(of: im)
         }
         
        
@@ -200,10 +208,9 @@ extension MainViewController: CollectionPhotoCellDelegate {
     }
     
     private func deleteImageObject(indexPath: IndexPath) {
-        
         do {
             // delete image object from documents directory
-            try dataPersistance.delete(event: indexPath.row)
+            try dataPersistance.delete(item: indexPath.row)
             
             //delete imageObject from imageObjects
             imageObjects.remove(at: indexPath.row)
@@ -234,4 +241,23 @@ extension UIImage {
             self.draw(in: CGRect(origin: .zero, size: size))
         }
     }
+}
+
+extension MainViewController: SettingsDelegate {
+    func didSelectColor(backgroundColor: UIColor) {
+        view.backgroundColor = backgroundColor
+        toolBar.backgroundColor = backgroundColor
+    }
+    
+    func didSelectDirection(direction: ScrollingDirection) {
+        guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        
+        switch direction {
+        case .horizontal:
+            layout.scrollDirection = .horizontal
+        case .vertical:
+            layout.scrollDirection = .vertical
+        }
+    }
+
 }
