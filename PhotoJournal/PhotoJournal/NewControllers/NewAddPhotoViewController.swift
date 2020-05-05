@@ -52,57 +52,6 @@ class NewAddPhotoViewController: UIViewController {
          }
      }
     
-//    private func appendNewPhotoToCollection() {
-//         guard let image = selectedImage else {
-//             print("image is nil #1")
-//             return
-//         }
-//         print("original image size is \(image.size)")
-//
-//         //resize image
-//         let size = UIScreen.main.bounds.size
-//
-//         // we will maintain the aspect ratio of the image
-//         let rect = AVMakeRect(aspectRatio: image.size, insideRect: CGRect(origin: CGPoint.zero, size: size))
-//
-//         //resize image
-//         let resizeImage = image.resizeImage(to: rect.size.width, height: rect.size.height)
-//
-//         print("resized image size is \(resizeImage.size)")
-//
-//         // jpegData(compressionQuality: 1.0 converts UIImage to Data
-//         guard let resizedImageData = resizeImage.jpegData(compressionQuality: 1.0) else {
-//             return
-//         }
-//
-//         // create an ImageObject using image selected
-//         //let imageObject = ImageObject(imageData: resizedImageData, date: Date())
-//
-//         let imageObject = ImageObject(imageData: resizedImageData, date: Date(), imageDescription: textField.text ?? "no photo description")
-//
-//         //insert new imageObject into imageObjects
-//       // ? is this a problem? why inserts instead of attend?
-//         //imageObjects.insert(imageObject, at: 0)
-//        // it does not append but substitutes...
-//        imageObjects.append(imageObject)
-//
-//
-//         //FIXME: I dont htink we need this code:
-//          // create an indexPath for insertion into collection view
-//         // let indexPath = IndexPath(row: 0, section: 0)
-//
-//          // insert new cell into collection view
-//      //  ?? how should it work here?
-//        //  collectionView.insertItems(at: [indexPath])
-//
-//         //persist imageObject to documents directory
-//         do {
-//            try dataPersistance.create(imageObject)
-//         } catch {
-//             print("saving error: \(error)")
-//         }
-//     }
-    
     //FIXME:
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
         imageView.image = UIImage(systemName: "photo")
@@ -196,13 +145,13 @@ extension NewAddPhotoViewController: UITextFieldDelegate {
     
 }
 
-extension UIImage {
-    func resizeImage(to width: CGFloat, to height: CGFloat) -> UIImage {
-        let size = CGSize(width: width, height: height)
-        let renderer = UIGraphicsImageRenderer(size: size)
-        return renderer.image { (context) in
-            self.draw(in: CGRect(origin: .zero, size: size))
-        }
-    }
-}
+//extension UIImage {
+//    func resizeImage(to width: CGFloat, to height: CGFloat) -> UIImage {
+//        let size = CGSize(width: width, height: height)
+//        let renderer = UIGraphicsImageRenderer(size: size)
+//        return renderer.image { (context) in
+//            self.draw(in: CGRect(origin: .zero, size: size))
+//        }
+//    }
+//}
 

@@ -126,36 +126,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="455"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0iz-Sd-fSE">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0iz-Sd-fSE">
                                                     <rect key="frame" x="20" y="21" width="374" height="347.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="350" id="koZ-3Q-gOq"/>
-                                                    </constraints>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="photoNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4f-fT-IKD">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="photoNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4f-fT-IKD">
                                                     <rect key="frame" x="20" y="400" width="374" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eg8-Dk-INO">
-                                                    <rect key="frame" x="364" y="360" width="30" height="30"/>
-                                                    <state key="normal" title="Edit"/>
-                                                    <connections>
-                                                        <action selector="editButtonPressed:" destination="PID-pz-k0d" eventType="touchUpInside" id="iZC-xj-NIz"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="r4f-fT-IKD" secondAttribute="trailing" constant="20" id="BSO-B7-dhe"/>
-                                                <constraint firstAttribute="trailing" secondItem="0iz-Sd-fSE" secondAttribute="trailing" constant="20" id="JX0-a6-DTe"/>
-                                                <constraint firstAttribute="trailing" secondItem="Eg8-Dk-INO" secondAttribute="trailing" constant="20" id="PNb-vh-4Dy"/>
-                                                <constraint firstItem="r4f-fT-IKD" firstAttribute="top" secondItem="Eg8-Dk-INO" secondAttribute="bottom" constant="10" id="WjI-9l-WgI"/>
-                                                <constraint firstItem="0iz-Sd-fSE" firstAttribute="top" secondItem="IfD-Lo-veL" secondAttribute="top" constant="20" id="cRb-VZ-c8a"/>
-                                                <constraint firstItem="r4f-fT-IKD" firstAttribute="top" secondItem="0iz-Sd-fSE" secondAttribute="bottom" constant="30" id="gaj-XZ-DWt"/>
-                                                <constraint firstItem="r4f-fT-IKD" firstAttribute="leading" secondItem="IfD-Lo-veL" secondAttribute="leading" constant="20" id="wZ2-OS-rjG"/>
-                                                <constraint firstItem="0iz-Sd-fSE" firstAttribute="leading" secondItem="IfD-Lo-veL" secondAttribute="leading" constant="20" id="xH2-Mk-5lJ"/>
-                                            </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="455"/>
                                         <connections>
@@ -497,7 +479,7 @@
         <!--New Add Photo View Controller-->
         <scene sceneID="vvB-xR-st9">
             <objects>
-                <viewController id="Xhh-vK-WIY" customClass="NewAddPhotoViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewAddPhotoViewController" id="Xhh-vK-WIY" customClass="NewAddPhotoViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bhP-F8-97K">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
