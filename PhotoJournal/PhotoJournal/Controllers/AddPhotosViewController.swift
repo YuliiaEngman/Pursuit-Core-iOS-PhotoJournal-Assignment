@@ -91,7 +91,7 @@ class AddPhotosViewController: UIViewController {
         
         //persist imageObject to documents directory
         do {
-            try dataPersistance.create(imageObject)
+            try dataPersistance.create(event: imageObject)
         } catch {
             print("saving error: \(error)")
         }
@@ -152,7 +152,7 @@ class AddPhotosViewController: UIViewController {
            let imageObject = ImageObject(imageData: resizedImageData, date: Date(), imageDescription: textField.text ?? "no photo description")
            
            do {
-            try dataPersistance.create(imageObject)
+            try dataPersistance.create(event: imageObject)
            } catch {
                print("saving error: \(error)")
            }

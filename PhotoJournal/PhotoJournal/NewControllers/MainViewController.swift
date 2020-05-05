@@ -95,7 +95,7 @@ class MainViewController: UIViewController {
     
              //persist imageObject to documents directory
              do {
-                try dataPersistance.create(imageObject)
+                try dataPersistance.create(event: imageObject)
              } catch {
                  print("saving error: \(error)")
              }

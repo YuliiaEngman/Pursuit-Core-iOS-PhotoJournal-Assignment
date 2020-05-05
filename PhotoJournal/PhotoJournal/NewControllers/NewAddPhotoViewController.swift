@@ -88,7 +88,7 @@ class NewAddPhotoViewController: UIViewController {
         let imageObject = ImageObject(imageData: resizedImageData, date: Date(), imageDescription: textField.text ?? "no image description")
            
            do {
-            try dataPersistance.create(imageObject)
+            try dataPersistance.create(event: imageObject)
            } catch {
                print("saving error: \(error)")
            }
